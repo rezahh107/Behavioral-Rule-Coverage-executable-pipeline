@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/rule.schema.json",
+  "title": "Behavioral Rule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rule_id",
+    "title",
+    "description",
+    "source",
+    "lifecycle",
+    "severity",
+    "machine_verifiable"
+  ],
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "pattern": "^BRC-RULE-[0-9]{4}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "reference"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "document",
+            "prompt",
+            "policy",
+            "workflow",
+            "schema",
+            "other"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "documented",
+        "normalized",
+        "fixture_backed",
+        "test_backed",
+        "executable",
+        "deprecated"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "machine_verifiable": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
