@@ -1,0 +1,13 @@
+{
+  "rule_id": "BRC-RULE-0001",
+  "title": "Do not claim validation without execution evidence",
+  "description": "A report must not say that validation passed unless the relevant command was actually run or a concrete CI/log artifact was inspected.",
+  "source": {
+    "type": "document",
+    "reference": "docs/CLAIM_BOUNDARIES.md"
+  },
+  "lifecycle": "documented",
+  "severity": "critical",
+  "machine_verifiable": true,
+  "notes": "This bootstrap example is generic and demonstrates traceability. It is not yet backed by a full executable validator."
+}
