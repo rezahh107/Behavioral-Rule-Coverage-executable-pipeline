@@ -1,0 +1,15 @@
+{
+  "coverage_id": "BRC-COV-0001",
+  "rule_id": "BRC-RULE-0001",
+  "coverage_state": "partially_covered",
+  "evidence": {
+    "source_reference": "docs/CLAIM_BOUNDARIES.md",
+    "fixture_reference": null,
+    "check_reference": "scripts/validate_bootstrap.py"
+  },
+  "validation": {
+    "status": "not_run",
+    "last_checked": null,
+    "notes": "The bootstrap validator exists, but this coverage record has not been verified by a full behavioral rule validator."
+  }
+}
