@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/coverage-record.schema.json",
+  "title": "Coverage Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "coverage_id",
+    "rule_id",
+    "coverage_state",
+    "evidence",
+    "validation"
+  ],
+  "properties": {
+    "coverage_id": {
+      "type": "string",
+      "pattern": "^BRC-COV-[0-9]{4}$"
+    },
+    "rule_id": {
+      "type": "string",
+      "pattern": "^BRC-RULE-[0-9]{4}$"
+    },
+    "coverage_state": {
+      "type": "string",
+      "enum": [
+        "covered",
+        "partially_covered",
+        "not_covered",
+        "not_executable",
+        "unknown"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_reference",
+        "fixture_reference",
+        "check_reference"
+      ],
+      "properties": {
+        "source_reference": {
+          "type": "string"
+        },
+        "fixture_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "check_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "last_checked",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "unknown",
+            "not_run",
+            "not_applicable"
+          ]
+        },
+        "last_checked": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
